@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set active_page = "uploading" %}
+{% block content %}
+
+    <html>
+    <body>
+    <form action="" method="post" name="form" enctype="multipart/form-data">
+      <input type="file" name="datafile" />
+      <input type="submit" name="submit" id="submit"/>
+    </form>
+    </body>
+    </html>
+
+
+{% endblock %}
