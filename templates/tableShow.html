@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-	<p>First example template. It contains some stuff.</p>
+
+
+
+<table align='left' width="100%">
+	<tr>
+		<th colspan='2' align='center'><h1> {{movie}} </h1></th>
+	</tr>
+	<tr>
+		<th width= '50%'><img src = {{poster}}</th>
+		<th>Director: </b> {{director}}</th>
+	</tr>
+
+
+</table>
+	<p><b>Producer: </b> {{producer}} </p>
+	<p><b>Genre: </b> {{genre}} </p>
+	<p><b>Release Year: </b> {{year}} </p>
+	<p><b>Plot: </b> {{plot}} </p>
+	<p><b>Running Time: </b> {{time}} </p>
+	<ol><p><b>Casting:</b></p>
+		{% for cast in casting %}
+			<li>{{ cast }}</li>
+		{% endfor %}
+
+	</ol>
+	<p><b>Budget: </b> {{budget}} <p>
+	<p><b>Box Office: </b> {{boxoffice}} </p>
+
 {% endblock %}
