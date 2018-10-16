@@ -1,31 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
-<table align='left' width="100%">
-	<tr>
-		<th colspan='2' align='center'><h1> {{movie}} </h1></th>
-	</tr>
-	<tr>
-		<th width= '50%'><img src = {{poster}}</th>
-		<th>Director: </b> {{director}}</th>
-	</tr>
-
-
-</table>
-	<p><b>Producer: </b> {{producer}} </p>
-	<p><b>Genre: </b> {{genre}} </p>
-	<p><b>Release Year: </b> {{year}} </p>
-	<p><b>Plot: </b> {{plot}} </p>
-	<p><b>Running Time: </b> {{time}} </p>
-	<ol><p><b>Casting:</b></p>
-		{% for cast in casting %}
-			<li>{{ cast }}</li>
-		{% endfor %}
-
-	</ol>
-	<p><b>Budget: </b> {{budget}} <p>
-	<p><b>Box Office: </b> {{boxoffice}} </p>
+	<table border='0' align='left' width="100%">
+		<tr>
+			<th colspan='2'><h1><center> {{movie}} </center></h1></th>
+		</tr>
+		<tr>
+			<td width='30%' rowspan="9"><img src = {{poster}} ></td>
+			<td><b>Director: </b> {{director}}</td>
+		</tr>
+		<tr><td></td></tr>
+		<tr>
+			<td><b>Producer: </b> {{producer}} </td>
+		</tr>
+		<tr>
+			<td><b>Genre: </b>
+				<a href="/movies/{{genre}}/">{{genre}}</a>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Release Year: </b><a href="/movies/{{year}}">{{year}}</a> </td>
+		</tr>
+		<tr>
+			<td><b>Running Time: </b> {{time}} </td>
+		</tr>
+		<tr>
+			<td><b>Budget: </b> {{budget}} </td>
+		</tr>
+		<tr>
+			<td><b>Box Office: </b> {{boxoffice}} </td>
+		</tr>
+		<tr>
+			<td><b>Casting: </b> 	{% for cast in casting %}
+														{{ cast }}
+														{% endfor %} </td>
+		</tr>
+		<tr>
+			<td colspan='2'><p><b>Plot: </b> {{plot}} </p></td>
+		</tr>
+	</table>
 
 {% endblock %}
