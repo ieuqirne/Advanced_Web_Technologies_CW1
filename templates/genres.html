@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% set active_page = "movies" %}
+{% block content %}
+<div style="padding:13px">
+	<table border='0' align='left' width="100%" cellspacing="1000">
+		<tr>
+			<td><h1><center> {{genre}} </center></h1></td>
+		</tr>
+			<td><p><b>History: </b></p><p> {{history}}</p><p>{{history1}}</p></td>
+		</tr>
+		<td><b>Movies: </b> <ul style="list-style-type:square">
+													{% for mov, link in mylist %}
+													<li><a href="{{link}}">{{ mov }} {{link}}</li>
+													{% endfor %}
+												</ul>
+		</td>
+	</table>
+
+{% endblock %}

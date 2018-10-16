@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<table border='0' align='left' width="100%">
+	<table border='5' align='left' width="100%">
 		<tr>
 			<th colspan='2'><h1><center> {{movie}} </center></h1></th>
 		</tr>
 		<tr>
-			<td width='30%' rowspan="9"><img src = {{poster}} ></td>
+			<td width='23%' rowspan="8"><img src = {{poster}} ></td>
 			<td><b>Director: </b> {{director}}</td>
 		</tr>
-		<tr><td></td></tr>
 		<tr>
 			<td><b>Producer: </b> {{producer}} </td>
 		</tr>
 		<tr>
 			<td><b>Genre: </b>
-				<a href="/movies/{{genre}}/">{{genre}}</a>
+				<a href="/movies/{{genreLink}}/">{{genre}}</a>
 			</td>
 		</tr>
 		<tr>
@@ -36,7 +35,11 @@
 														{% endfor %} </td>
 		</tr>
 		<tr>
-			<td colspan='2'><p><b>Plot: </b> {{plot}} </p></td>
+			<td colspan='2'><p><b>Plot:</b></p>
+														<p>{% for p in plot %}
+														{{ p }}
+														{% endfor %}</p>
+			</td>
 		</tr>
 	</table>
 
