@@ -1,15 +1,21 @@
 {% extends "base.html" %}
-{% set active_page = "uploading" %}
+{% set active_page = "movies" %}
 {% block content %}
-
-    <html>
-    <body>
-    <form action="" method="post" name="form" enctype="multipart/form-data">
-      <input type="file" name="datafile" />
-      <input type="submit" name="submit" id="submit"/>
-    </form>
-    </body>
-    </html>
+<div style="padding:13px">
+	<table border='0' align='left' width="100%" cellspacing="1000">
+		<tr>
+			<td><h1><center> {{year}} </center></h1></td>
+		</tr>
+			<td>{% if year>1994  %}<a href="/movies/{{year-1}}">{{year-1}}{% endif %}</td>
+      <td>{% if year<2008  %}<a href="/movies/{{year+1}}">{{year+1}}{% endif %}</td>
+		</tr>
+		<td><b>Movies: </b> <ul style="list-style-type:square">
+													{% for mov, link in mylist %}
+													<li><a href="{{link}}">{{ mov }} {{link}}</li>
+													{% endfor %}
+												</ul>
+		</td>
+	</table>
 
 
 {% endblock %}

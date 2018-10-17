@@ -31,14 +31,14 @@
 		</tr>
 		<tr>
 			<td><b>Casting: </b> 	{% for cast in casting %}
-														{{ cast }}
+														{% if not loop.first %}, {% endif %}{{ cast }}
 														{% endfor %} </td>
 		</tr>
 		<tr>
 			<td colspan='2'><p><b>Plot:</b></p>
-														<p>{% for p in plot %}
-														{{ p }}
-														{% endfor %}</p>
+														{% for x in plot %}
+														<p>{{ x }}</p>
+														{% endfor %}
 			</td>
 		</tr>
 	</table>
