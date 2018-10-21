@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% set active_page = "movies" %}
+{% block content %}
+
+<div style="padding:13px">
+	{% for dat in data.genres %}
+		{% if dat.link == genre %}
+				<h1><center>{{dat.genre}}</center></h1>
+			{% endif %}
+	{% endfor %}
+	<br><br>
+	<table border='5' align='left' width="100%" cellspacing="1000">
+		<tr>
+			<td colspan='2' align="center">
+				{% for dat in data.genres %}
+					{% if dat.link != genre %}
+						<a href="/allmovies/genre/{{dat.link}}">{{dat.genre}}</a>
+						{% endif %}
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<p><b>A bit of culture. </b></p>
+				{% for dat in data.genres %}
+					{% if dat.link == genre %}
+							{% for x in dat.history %}
+							<p>{{ x }}</p>
+							{% endfor %}
+						{% endif %}
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<b><br>Movies: </b><br><br>
+				<ul style="list-style-type:square">
+					{% for dat in data.movies %}
+						{% if dat.genreLink == genre %}
+								<li><a href="/allmovies/{{dat.link}}">{{dat.movie}}</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+{% endblock %}

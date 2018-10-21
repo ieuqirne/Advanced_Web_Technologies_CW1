@@ -2,15 +2,12 @@
 {% set active_page = "movies" %}
 {% block content %}
 <div style="padding:13px">
-	<table border='0' align='left' width="100%" cellspacing="1000">
+	<table border='5' align='left' width="100%">
 		<tr>
-			<td><h1><center> {{genre}} </center></h1></td>
+			<td><h1><center> {{year}} </center></h1></td>
 		</tr>
-			<td><p><b>A bit of culture. </b></p>
-													{% for hist in history %}
-													<p> {{hist}} </p>
-													{% endfor %}
-		  </td>
+			<td width="50%">{% if year > 1994 %}<a href="/movies/{{year-1}}">{% endif %}{{year-1}}</td>
+      <td width="50%">{% if year < 2008 %}<a href="/movies/{{year+1}}">{% endif %}{{year+1}}</td>
 		</tr>
 		<td><b>Movies: </b> <ul style="list-style-type:square">
 													{% for mov, link in mylist %}

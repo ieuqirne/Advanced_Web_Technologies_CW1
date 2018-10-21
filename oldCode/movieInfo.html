@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<table border='5' align='left' width="100%">
+		<tr>
+			<th colspan='2'><h1><center> {{dictionary.0}} </center></h1></th>
+		</tr>
+		<tr>
+			<td width='23%' rowspan="8"><img src = {{dictionary.1}} widht="260" height="340"></td>
+			<td><b>Director: </b> {{dictionary.2}}</td>
+		</tr>
+		<tr>
+			<td><b>Producer: </b> {{dictionary.3}} </td>
+		</tr>
+		<tr>
+			<td><b>Genre: </b>
+				<a href="/movies/{{dictionary.5}}/">{{dictionary.4}}</a>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Release Year: </b><a value={{dictionary.6}} href="/movies/{{dictionary.6}}">{{dictionary.6}}</a> </td>
+		</tr>
+		<tr>
+			<td><b>Running Time: </b> {{dictionary.8}} minutes</td>
+		</tr>
+		<tr>
+			<td><b>Budget: </b> ${{dictionary.10}} million </td>
+		</tr>
+		<tr>
+			<td><b>Box Office: </b> ${{dictionary.11}} million </td>
+		</tr>
+		<tr>
+			<td><b>Casting: </b> 	{% for cast in dictionary.9 %}
+														{{ cast }}{% if not loop.last %},{% endif %}
+														{% endfor %} </td>
+		</tr>
+		<tr>
+			<td colspan='2'><p><b>Plot:</b></p>
+														{% for x in dictionary.7 %}
+														<p>{{ x }}</p>
+														{% endfor %}
+			</td>
+		</tr>
+	</table>
+
+{% endblock %}

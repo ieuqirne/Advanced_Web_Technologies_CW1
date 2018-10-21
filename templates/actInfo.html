@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set active_page = "movies" %}
+{% block content %}
+
+{% for dat in data.act %}
+	{% if act == dat.link %}
+
+			<h1><center> {{dat.name}} </center></h1>
+			<table border='5' align='left' width="100%">
+				<tr>
+					<td width='20%'><img style="display:block" src = {{dat.image}} widht="260" height="340"></td>
+					<td>
+						<b>A bit about...</b><br><br>
+						{% for x in dat.history %}
+						<p>{{ x }}</p>
+						{% endfor %}
+					</td>
+				</tr>
+				<tr border='0' cellspacing="10">
+					<td colspan='2'><br><b>Movies: </b> <br><br>
+						<ul style="list-style-type:square">
+																{% for mov in data.movies %}
+																	{% for cas in mov.casting %}
+																			{% if cas == dat.name %}
+																			<li><a href="/allmovies/{{mov.link}}">{{ mov.movie }}</a></li>
+
+																			{% endif %}
+																	{% endfor %}
+																{% endfor %}
+															</ul>
+					</td>
+				</tr>
+
+			</table>
+
+			{% endif %}
+{% endfor %}
+
+
+{% endblock %}

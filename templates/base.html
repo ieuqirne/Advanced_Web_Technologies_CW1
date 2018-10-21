@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title> Bootstrap Demonstation </title>
+    <title> MoviLand</title>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
     <style>
       body{
@@ -25,8 +25,9 @@
       <div id="navbar" class="collapse navbar-collapse">
         {% set navigation_bar = [
             ('/', 'home', 'Home'),
-            ('/movies/', 'movies', 'Movies'),
-            ('/uploading/', 'uploading', 'Uploading')
+            ('/allmovies/', 'movies', 'All Movies'),
+            ('/allmovies/genre/', 'genres', 'Genres'),
+            ('/allmovies/year/', 'year', 'Years')
         ] -%}
 
         {% set active_page = active_page|default('home') -%}

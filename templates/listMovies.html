@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set active_page = "movies" %}
+{% block content %}
+
+<div style="padding:13px">
+	<h1><center> ALL MOVIES </center></h1><br><br>
+	<table border='2' align='left' width="100%" cellspacing="1000">
+
+		<tr>
+			<td width="50%" align="center">
+				{% for dat in data.genres %}
+						<a href="genre/{{dat.link}}">{{dat.genre}}</a>
+				{% endfor %}
+			</td>
+			<td width="50%" align="center">
+				{% for year in data.years %}
+						<a href="year/{{year}}">{{year}}</a>
+				{% endfor %}
+			</td>
+		</tr>
+		</table>
+		<table border='0' align='left' width="100%" cellspacing="1000">
+		<tr>
+			<br><br><br>
+		</tr>
+		{% for x in range (0,46,2) %}
+		<tr>
+			<td width="50%">
+					<center><a href="{{data.movies[x].link}}">{{data.movies[x].movie}}</a></center>
+			</td>
+			<td width="50%">
+					<center><a href="data.movies[x+1].link">{{data.movies[x+1].movie}}</a></center>
+			</td>
+		</tr>
+		{% endfor %}
+		
+	</table>
+
+
+{% endblock %}

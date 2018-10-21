@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% set active_page = "movies" %}
+{% block content %}
+
+<div style="padding:13px">
+	<h1><center> ALL ACTORS </center></h1><br><br>
+	<table border='2' align='left' width="100%" cellspacing="1000">
+
+		<td >
+												<ul style="list-style-type:none">
+													{% for dat in data.act %}
+															<li><a href="{{dat.link}}">{{dat.name}}</a></li>
+														{% endfor %}
+												</ul>
+		</td>
+	</table>
+
+
+{% endblock %}

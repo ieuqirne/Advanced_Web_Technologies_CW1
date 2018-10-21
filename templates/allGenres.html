@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% set active_page = "genres" %}
+{% block content %}
+<div style="padding:13px">
+
+		<h1><center> GENRES </center></h1>
+
+		<table border='2' align='center' width="100%" cellspacing="1000">
+		{% for x in range (0,8,2) %}
+		<tr>
+			<td width="50%">
+	        <center><a href="{{data.genres[x].link}}">{{data.genres[x].genre}}</a></center>
+					<center><a href="{{data.genres[x].link}}"><img src = {{data.genres[x].image}} widht="70" height="70"></a></center>
+			</td>
+			<td width="50%">
+					<center><a href="{{data.genres[x+1].link}}">{{data.genres[x].genre}}</a></center>
+					<center><a href="{{data.genres[x+1].link}}"><img src = {{data.genres[x+1].image}} widht="70" height="70"></a></center>
+			</td>
+		</tr>
+ 	{% endfor %}
+	</table>
+
+
+{% endblock %}
