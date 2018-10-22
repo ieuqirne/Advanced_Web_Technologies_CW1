@@ -1,18 +1,32 @@
 {% extends "base.html" %}
-{% set active_page = "movies" %}
+{% set active_page = "act" %}
 {% block content %}
 
 <div style="padding:13px">
 	<h1><center> ALL ACTORS </center></h1><br><br>
-	<table border='2' align='left' width="100%" cellspacing="1000">
-
-		<td >
-												<ul style="list-style-type:none">
-													{% for dat in data.act %}
-															<li><a href="{{dat.link}}">{{dat.name}}</a></li>
-														{% endfor %}
-												</ul>
-		</td>
+	<table border='0' align='center' width="90%" cellspacing="1000">
+		{% for x in range (0,12,3) %}
+		<tr>
+			<td width="10%">
+						<a href="{{data.act[x].link}}"><img style="display:block" src = {{data.act[x].image}} widht="100" height="100"></a>
+			</td>
+			<td width="20%">
+						<a href="{{data.act[x].link}}">{{data.act[x].name}}</a>
+			</td>
+			<td width="10%">
+						<a href="{{data.act[x+1].link}}"><img style="display:block" src = {{data.act[x+1].image}} widht="100" height="100"></a>
+			</td>
+			<td width="30%">
+						<a href="{{data.act[x+1].link}}">{{data.act[x+1].name}}</a>
+			</td>
+			<td width="10%">
+						<a href="{{data.act[x+2].link}}"><img style="display:block" src = {{data.act[x+2].image}} widht="100" height="100"></a>
+			</td>
+			<td width="20%">
+						<a href="{{data.act[x+2].link}}">{{data.act[x+2].name}}</a>
+			</td>
+		</tr>
+		{% endfor %}
 	</table>
 
 

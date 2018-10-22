@@ -1,15 +1,22 @@
 {% extends "base.html" %}
-{% set active_page = "movies" %}
+{% set active_page = "year" %}
 {% block content %}
 
 <div style="padding:13px">
 
-			<h1><center> {{year}} </center></h1>
+			<h1><center> <img src = /static/years/{{year}}.jpg widht="70" height="70"> </center></h1>
 
 	<table border='5' align='left' width="100%" cellspacing="1000">
 		<tr>
-			<td width="50%">{% if year > 1994 %}<a href="/allmovies/year/{{year-1}}">{% endif %}<< {{year-1}}</td>
-			<td align="right" width="50%">{% if year < 2008 %}<a href="/allmovies/year/{{year+1}}">{% endif %}{{year+1}} >></td>
+			<td colspan='2' align="center">
+				{% for dat in data.years %}
+					{% if dat != year %}
+						<a href="/allmovies/year/{{dat}}"><img src = /static/years/{{dat}}.jpg widht="30" height="30"></a>
+						{% if dat < 2007 %}-{% endif %}
+						{% endif %}
+
+				{% endfor %}
+			</td>
 		</tr>
 		<td colspan='2'><b><br>Movies: </b><br><br><ul style="list-style-type:square">
 													{% for dat in data.movies %}

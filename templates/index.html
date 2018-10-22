@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set active_page = "home" %}
+{% block content %}
+<div style="padding:13px">
+
+		<h1><center> MOVIELAND </center></h1>
+
+		<table border='2' align='left' width="13%">
+		{% for x in range (0,8,2) %}
+		<tr>
+			<td width="50%">
+					<a href="/allmovies/{{data.movies[x].link}}"><img style="display:block" src = {{data.movies[x].poster}} widht="100" height="100"></a>
+			</td>
+			<td width="50%">
+					<a href="/allmovies/{{data.movies[x+1].link}}"><img style="display:block" src = {{data.movies[x+1].poster}} widht="100" height="100"></a>
+			</td>
+		</tr>
+ 	{% endfor %}
+	</table>
+	<table border='0' align='left' width="73%">
+	<tr>
+		<td width="7%">
+		</td>
+		<td><br><br><p>Movieland is a online directory where you can find some of the Hollywood movies from 1993 until 2008.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla velit libero, volutpat eget sollicitudin vitae, varius sit amet libero. Sed mattis mollis felis ac pulvinar. Sed nec purus id mi molestie finibus feugiat sed erat. Proin at ligula sit amet orci suscipit ultricies sit amet at libero. Pellentesque convallis vehicula ipsum sed commodo. Sed lorem nunc, fermentum nec faucibus sed, pulvinar vitae elit. Nunc ut facilisis tortor, at suscipit lectus. Maecenas venenatis dolor at tortor laoreet, eu semper purus dapibus. Praesent ultrices, elit quis convallis tincidunt, felis magna sagittis urna, sit amet bibendum libero velit nec lorem. Phasellus ultrices commodo metus a ornare.</p>
+				<p>Proin accumsan arcu a odio vestibulum aliquam. Nunc vestibulum rhoncus molestie. Nullam laoreet non turpis at semper. Donec dignissim ac lectus non condimentum. Suspendisse potenti. Donec ac mattis lectus, quis tincidunt mauris. Nullam consectetur at elit vel varius. Sed vel enim lectus. Fusce congue libero vel nunc tempus cursus id eget lacus. Suspendisse et arcu sollicitudin, molestie nunc sit amet, rutrum sapien. Maecenas quis tincidunt enim. Ut tellus turpis, feugiat non ullamcorper vel, feugiat vel nunc. Donec varius sagittis magna sed sodales. Phasellus sollicitudin mattis ipsum, sit amet consectetur sem convallis id.</p>
+
+		</td>
+		<td width="7%">
+		</td>
+	</tr>
+</table>
+	<table border='2' align='right' width="13%">
+	{% for x in range (9,16,2) %}
+	<tr>
+		<td width="50%">
+				<a href="/allmovies/{{data.movies[x].link}}"><img style="display:block" src = {{data.movies[x].poster}} widht="100" height="100"></a>
+		</td>
+		<td width="50%">
+				<a href="/allmovies/{{data.movies[x+1].link}}"><img style="display:block" src = {{data.movies[x+1].poster}} widht="100" height="100"></a>
+		</td>
+	</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

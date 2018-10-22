@@ -1,6 +1,6 @@
 from flask import Flask, render_template, json, request, url_for, redirect, flash
 from pprint import pprint
-import os
+import os,random
 
 app = Flask(__name__)
 
@@ -9,7 +9,7 @@ def root():
     INDEX = os.path.realpath(os.path.dirname(__file__))
     with open(os.path.join(INDEX ,'static', 'data.json')) as f:
         data = json.load (f)
-        return render_template('movieInfo.html', data=data),200
+        return render_template('index.html', data=data),200
 
 #uploading data
 @app.route("/uploading/", methods=['POST','GET'])
@@ -120,8 +120,7 @@ def force404():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    message ="Couldn't find the page you requested"
-    return render_template('message.html', message=message), 404
+    return render_template('message.html'), 404
 
 #redirect
 

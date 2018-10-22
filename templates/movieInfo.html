@@ -1,9 +1,19 @@
 {% extends "base.html" %}
+{% set active_page = "movies" %}
 {% block content %}
 
+<script>
+   <!--
+      var isIn=0;
+   //-->
+</script>
 {% for dat in data.movies %}
 	{% if mov == dat.link %}
-
+				<script>
+				   <!--
+				      isIn=1;
+				   //-->
+				</script>
 				<h1><center> {{dat.movie}} </center></h1>
 
 				<table border='5' align='left' width="100%">
@@ -52,7 +62,16 @@
 			</table>
 
 			{% endif %}
+
 {% endfor %}
 
-
+<script>
+   <!--
+      if(isIn==0)
+			{
+				document.getElementById("demo").innerHTML = "Good day!";
+			}
+   //-->
+</script>
+<p id="demo">
 {% endblock %}

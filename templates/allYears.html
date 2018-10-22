@@ -1,19 +1,23 @@
 {% extends "base.html" %}
-{% set active_page = "genres" %}
+{% set active_page = "year" %}
 {% block content %}
 <div style="padding:13px">
 
 		<h1><center> YEARS </center></h1>
 
-		<table  align='center' width="100%" cellspacing="1000">
+		<table align='center' width="100%" cellspacing="1000">
 		{% for x in range (0,15,2) %}
 			<tr>
 				<td width="50%">
+					<br>
 		        <center><a href="{{data.years[x]}}"><img src = /static/years/{{data.years[x]}}.jpg widht="70" height="70"></a></center>
 
 				</td>
 				<td width="50%">
+					<br>
+					{% if x+1 < 15 %}
 		        <center><a href="{{data.years[x+1]}}"><img src = /static/years/{{data.years[x+1]}}.jpg widht="70" height="70"></a></center>
+					{% endif %}
 				</td>
 			</tr>
 	 	{% endfor %}

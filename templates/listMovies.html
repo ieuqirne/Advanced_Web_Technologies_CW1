@@ -23,17 +23,17 @@
 		<tr>
 			<br><br><br>
 		</tr>
-		{% for x in range (0,46,2) %}
+		{% for x in range (0,52,2) %}
 		<tr>
 			<td width="50%">
 					<center><a href="{{data.movies[x].link}}">{{data.movies[x].movie}}</a></center>
 			</td>
 			<td width="50%">
-					<center><a href="data.movies[x+1].link">{{data.movies[x+1].movie}}</a></center>
+					<center><a href="{{data.movies[x+1].link}}">{{data.movies[x+1].movie}}</a></center>
 			</td>
 		</tr>
 		{% endfor %}
-		
+
 	</table>
 
 
